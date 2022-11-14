@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Результаты</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/static/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <section class="page-section about-heading">
+            <div class="container">
+                <div class="about-heading-content">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-4 mx-auto">
+                            <div class="bg-faded rounded p-5">
+                                <h2 class="section-heading mb-4">
+                                    Результаты запроса
+                                </h2>
+                                <h3 class="section-heading">Параметры</h3>
+                                <ol class="list-group">
+                                    <li class="list-group-item" >Вакансия: {{ res['vacancy'] }}</li>
+                                    <li class="list-group-item">Условия: {{ res['where']}}</li>
+                                    <li class="list-group-item">Ср. верхняя граница: {{ res['up'] }}руб.</li>
+                                    <li class="list-group-item">Ср. нижняя граница: {{ res['down'] }}руб.</li>
+                                </ol>
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Номер</th>
+                                            <th scope="col">Название</th>
+                                            <th scope="col">Процент упоминаний</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for item in res['requirements'] %}
+                                            <tr>
+                                                <th scope="row">{{ loop.index }} </th>
+                                                <td>{{ item['name'].capitalize() }}</td>
+                                                <td align="right">{{ item['percent'] }}%</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </nav>
+       <section class="py-5">
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                            <h1>Результаты запроса</h1>
+                            <h3>Параметры</h3>
+                            <ol>
+                                <li>python</li>
+                                <li>в названии компании</li>
+                            </ol>
+
+                            <h3>Навыки</h3>
+                            <ul>
+                                <li>python</li>
+                                <li>sql</li>
+                                <li>git</li>
+                            </ul>
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Номер</th>
+                                <th>Название</th>
+                                <th>Описание</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Python developer</td>
+                                <td>Надо прогать на python</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>java developer</td>
+                                <td>Надо прогать на java</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Web Python developer</td>
+                                <td>Надо прогать на python</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+ <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; my Website</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
